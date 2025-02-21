@@ -1,12 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+	<title>Password Protected Message</title>
 </head>
 <body>
-    <h1>Welcome to My GitHub Page</h1>
-    <p>This is a simple web page hosted on GitHub Pages.</p>
+	<h1>Enter CR hall ticket</h1>
+	<h2>To verify your are AIML 2-2 student</h2>
+	<form id="password-form">
+		<label for="password">hall ticket:</label>
+		<input type="password" id="password" name="password"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+	
+	<!-- Message to display after password entry -->
+	<p id="message" style="display:none;">Congratulations! You are verified .</p>
+	
+	<script>
+		// Set password
+		var password = "23UE1A7334";
+		
+		// Add event listener to form submission
+		document.getElementById("password-form").addEventListener("submit", function(event) {
+			event.preventDefault();
+			
+			// Get password input
+			var inputPassword = document.getElementById("password").value;
+			
+			// Check password and display message
+			if (inputPassword === password) {
+				document.getElementById("message").style.display = "block";
+			} else {
+				alert("Incorrect password!");
+			}
+		});
+	</script>
 </body>
 </html>
